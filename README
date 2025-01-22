@@ -1,6 +1,3 @@
-tehillaben9, maya_ganot
-212329098, 213741408
-
 1. ascii_output package:
 AsciiOutput - (interface) An object implementing this interface can output a 2D array of chars in some
 fashion.
