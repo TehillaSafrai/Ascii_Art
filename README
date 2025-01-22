@@ -1,0 +1,56 @@
+tehillaben9, maya_ganot
+212329098, 213741408
+
+1. ascii_output package:
+AsciiOutput - (interface) An object implementing this interface can output a 2D array of chars in some
+fashion.
+ConsoleAsciiOutput - implements AsciiOutput. Output a 2D array of chars to the console.
+HtmlAsciiOutput - implements AsciiOutput. Output a 2D array of chars to an HTML file viewable in a web browser
+.
+
+image package:
+image - create a pixel array based on an image path.
+imagePadding - is responsible for padding an Image to a power of 2 dimensions.
+
+ascii_art package:
+AsciiArtAlgorithm - is responsible for converting an Image object into ASCII art using a given resolution and
+a SubImgCharMatcher for character matching.
+Contains subImgCharMatcher.
+incorrectInputException - is a custom exception that extends the standard Java Exception class. It is designed
+ to be thrown in case of incorrect input parameters or conditions within the context of the ASCII art
+processing.
+KeyboardInput - provide a single point of access to the keyboard input functionality.
+Shell - The Shell class represents a command-line interface for managing ASCII art generation and
+customization. Contains an AsciiArtAlgorithm and a SubImgCharMatcher and an image.
+
+image_char_matching package:
+CharConverter - he CharConverter class is responsible for converting individual characters to a binary
+"image," represented as a 2D array of booleans.
+SunImagesControl - is responsible for processing an image into a matrix of brightness values, divided into
+ sub-images.
+SubImgCharMatcher -The SubImgCharMatcher class is responsible for managing the association between characters
+and their corresponding brightness values. It provides methods to add, remove, and retrieve characters based
+on their brightness levels.
+
+2. We used several types of data structures:
+   1. set - we used it in "shell" to save the array of characters entered by the user. In terms of the
+   efficiency of the code, the data structures add to the fact that we will not have to make sure that a
+   character does not already exist before we add it and allows for convenient operation of the prints.
+   In terms of runtime and memory, the use of the data structures does not make a significant difference.
+   2. ArrayList - The data structures were used in the shell. It allowed us to print the user's character set.
+    It allowed us to sort and iterate. In terms of runtime and memory the data structures did not change much.
+   3. TreeMap - We used the data structures to store a pair of brightness against its corresponding character
+    in class SunImgCharMatcher. The data structures allowed us fast runtime access to the character with the
+    closest brightness to the query. In addition, it allowed us at runtime to quickly find the character with
+    the minimum brightness and with the maximum brightness in a given character set. In terms of memory,
+    it allowed efficient storage of the brightness pairs and notes.
+
+3. We created an exception class that inherits from Java's exceptions. "IncorrectInputException".
+The exception is only used in the shell class.
+Every time the user's input does not match, the exception we created is thrown with an appropriate message.
+"run" method only catches this exception and prints the accompanying message, and continues running.
+In addition, if an error is thrown from reading the image file, the method that tries to open the image
+throws our error, which is also caught in "run".
+
+4. We didnt change SubImgCharMatcher API.
+5. We didnt change the supplied classes code.
